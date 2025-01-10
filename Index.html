@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Likhon Sheikh's Modern Browser Homepage: Interactive bookmarks, search bar, session details, and professional links.">
+  <meta name="keywords" content="Likhon Sheikh, Bookmarks, Modern Homepage, Browser Start Page, Search Bar, Session Details, Professional Profiles, Projects">
+  <meta name="author" content="Likhon Sheikh">
+  <meta name="theme-color" content="#1a1b27">
+  <meta property="og:title" content="Likhon Sheikh's Homepage">
+  <meta property="og:description" content="Your personalized gateway to the web with smart features">
+  <meta property="og:type" content="website">
+  <title>Likhon Sheikh Homepage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #1a1b27;
+      --accent-color: #007ACC;
+      --text-light: #ffffff;
+      --text-dark: #333333;
+      --card-bg: #ffffff;
+      --hover-color: #005b99;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a1b27, #2a2b47);
+      color: var(--text-light);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #007ACC, #00b4d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .search-section {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+      max-width: 400px;
+    }
+
+    .search-bar select {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent-color);
+      color: white;
+      cursor: pointer;
+    }
+
+    .search-bar button {
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent-color);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .search-bar button:hover {
+      background: var(--hover-color);
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--text-light);
+    }
+
+    .bookmark-list {
+      list-style: none;
+    }
+
+    .bookmark-list li {
+      margin: 0.5rem 0;
+    }
+
+    .bookmark-list a {
+      color: var(--text-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bookmark-list a:hover {
+      color: var(--accent-color);
+    }
+
+    .weather-widget {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+
+    .session-info {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .hit-counter {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      color: #1a1b27;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hit-counter span {
+      display: inline-block;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #007ACC;
+      animation: count-up 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes count-up {
+      0% {
+        transform: translateY(10px);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .search-bar {
+        flex-direction: column;
+      }
+
+      .search-bar select,
+      .search-bar button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome to Likhon Sheikh's Homepage</h1>
+      <p id="greeting"></p>
+    </header>
+
+    <section class="search-section">
+      <div class="search-bar">
+        <input type="text" id="search-query" placeholder="Search anything..." autofocus>
+        <select id="search-engine">
+          <option value="https://www.google.com/search?q=">Google</option>
+          <option value="https://www.bing.com/search?q=">Bing</option>
+          <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
+          <option value="https://scholar.google.com/scholar?q=">Google Scholar</option>
+          <option value="https://github.com/search?q=">GitHub</option>
+        </select>
+        <button onclick="search()"><i class="fas fa-search"></i> Search</button>
+      </div>
+    </section>
+
+    <div class="weather-widget" id="weather">
+      <h2>Loading weather...</h2>
+    </div>
+
+    <div class="quick-links">
+      <div class="card">
+        <h2><i class="fas fa-star"></i> Favorites</h2>
+        <ul class="bookmark-list" id="favorite-bookmarks">
+          <!-- Dynamically populated -->
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-code"></i> Development</h2>
+        <ul class="bookmark-list" id="dev-bookmarks">
+          <!-- Dynamically populated -->
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-book"></i> Learning</h2>
+        <ul class="bookmark-list" id="learning-bookmarks">
+          <!-- Dynamically populated -->
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-user"></i> Professional Profiles</h2>
+        <ul class="bookmark-list">
+          <li><a href="https://likhonsheikh.com" target="_blank"><i class="fas fa-globe"></i> Website</a></li>
+          <li><a href="mailto:likhonsheikhcodes@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Email</a></li>
+          <li><a href="https://linkedin.com/in/likhonsheikhcodes" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="https://twitter.com/likhoncodes" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="https://mastodon.social/@likhonsheikhcodes" target="_blank"><i class="fab fa-mastodon"></i> Mastodon</a></li>
+          <li><a href="https://t.me/likhonsheikhcodes" target="_blank"><i class="fab fa-telegram"></i> Telegram</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-briefcase"></i> Projects & Contributions</h2>
+        <ul class="bookmark-list">
+          <li><a href="https://github.com/likhonsheikhcodes" target="_blank"><i class="fab fa-github"></i> GitHub Profile</a></li>
+          <li><a href="https://likhonsheikh.dev" target="_blank"><i class="fas fa-globe"></i> Portfolio</a></li>
+          <li><a href="https://github.com/likhonsheikhcodes/bookmarks" target="_blank"><i class="fab fa-github"></i> This Repository</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-heart"></i> Support Likhon</h2>
+        <ul class="bookmark-list">
+          <li><a href="https://ko-fi.com/likhonsheikh" target="_blank"><i class="fas fa-coffee"></i> Buy Me a Coffee</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="session-info">
+      <p id="session-details"></p>
+      <p id="ip-info"></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Likhon Sheikh. All rights reserved.</p>
+    <div class="hit-counter">
+      Visitors:
+      <span id="hit1">0</span>
+      <span id="hit2">0</span>
+      <span id="hit3">0</span>
+    </div>
+    <div class="badges">
+      <a href="https://likhonsheikh.com"><img src="https://img.shields.io/badge/Website-232323?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website"></a>
+      <a href="mailto:likhonsheikhcodes@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
+      <a href="https://linkedin.com/in/likhonsheikhcodes"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+      <a href="https://twitter.com/likhoncodes"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter"></a>
+      <a href="https://mastodon.social/@likhonsheikhcodes"><img src="https://img.shields.io/badge/Mastodon-6364FF?style=for-the-badge&logo=mastodon&logoColor=white" alt="Mastodon"></a>
+      <a href="https://ko-fi.com/likhonsheikh"><img src="https://img.shields.io/badge/Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Ko-fi"></a>
+      <a href="https://t.me/likhonsheikhcodes"><img src="https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
+    </div>
+  </footer>
+
+  <script>
+    // Greeting based on time of day
+    function updateGreeting() {
+      const hour = new Date().getHours();
+      let greeting = '';
+      if (hour < 12) greeting = 'Good morning';
+      else if (hour < 18) greeting = 'Good afternoon';
+      else greeting = 'Good evening';
+      document.getElementById('greeting').textContent = `${greeting}, it's ${new Date().toLocaleString()}`;
+    }
+    updateGreeting();
+    setInterval(updateGreeting, 1000);
+
+    // Search functionality
+    function search() {
+      const query = document.getElementById('search-query').value;
+      const engine = document.getElementById('search-engine').value;
+      if (query) {
+        window.open(engine + encodeURIComponent(query), '_blank');
+      }
+    }
+
+    // Handle Enter key in search
+    document.getElementById('search-query').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') search();
+    });
+
+    // Predefined bookmarks
+    const bookmarks = {
+      favorites: [
+        { name: 'Gmail', url: 'https://mail.google.com', icon: 'fas fa-envelope' },
+        { name: 'Calendar', url: 'https://calendar.google.com', icon: 'fas fa-calendar' },
+        { name: 'Drive', url: 'https://drive.google.com', icon: 'fas fa-cloud' },
+        { name: 'YouTube', url: 'https://youtube.com', icon: 'fab fa-youtube' }
+      ],
+      development: [
+        { name: 'GitHub', url: 'https://github.com', icon: 'fab fa-github' },
+        { name: 'Stack Overflow', url: 'https://stackoverflow.com', icon: 'fab fa-stack-overflow' },
+        { name: 'CodePen', url: 'https://codepen.io', icon: 'fab fa-codepen' },
+        { name: 'Dev.to', url: 'https://dev.to', icon: 'fab fa-dev' }
+      ],
+      learning: [
+        { name: 'MDN Web Docs', url: 'https://developer.mozilla.org', icon: 'fas fa-book-open' },
+        { name: 'freeCodeCamp', url: 'https://www.freecodecamp.org', icon: 'fab fa-free-code-camp' },
+        { name: 'Coursera', url: 'https://www.coursera.org', icon: 'fas fa-graduation-cap' },
+        { name: 'Khan Academy', url: 'https://www.khanacademy.org', icon: 'fas fa-university' }
+      ]
+    };
+
+    // Render bookmarks
+    function renderBookmarks() {
+      document.getElementById('favorite-bookmarks').innerHTML = bookmarks.favorites
+        .map(b => `<li><a href="${b.url}" target="_blank"><i class="${b.icon}"></i> ${b.name}</a></li>`)
+        .join('');
+
+      document.getElementById('dev-bookmarks').innerHTML = bookmarks.development
+        .map(b => `<li><a href="${b.url}" target="_blank"><i class="${b.icon}"></i> ${b.name}</a></li>`)
+        .join('');
+
+      document.getElementById('learning-bookmarks').innerHTML = bookmarks.learning
+        .map(b => `<li><a href="${b.name}" target="_blank"><i class="${b.icon}"></i> ${b.name}</a></li>`)
+        .join('');
+    }
+
+    // Session information
+    function updateSessionInfo() {
+      const sessionStart = new Date().toLocaleString();
+      document.getElementById('session-details').textContent = `Session started: ${sessionStart}`;
+
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('ip-info').textContent = `Your IP: ${data.ip}`;
+        })
+        .catch(() => {
+          document.getElementById('ip-info').textContent = 'IP information unavailable';
+        });
+    }
+
+    // Weather widget (using mock data - replace with actual API in production)
+    function updateWeather() {
+      const mockWeather = {
+        temp: Math.round(20 + Math.random() * 10),
+        condition: 'Partly Cloudy'
+      };
+      document.getElementById('weather').innerHTML = `
+        <h2><i class="fas fa-cloud-sun"></i> ${mockWeather.temp}°C</h2>
+        <p>${mockWeather.condition}</p>
+      `;
+    }
+
+    // Simple Hit Counter Logic
+    const digits = [1, 2, 3]; // Example: Replace with actual counter logic
+    const counters = document.querySelectorAll('.hit-counter span');
+
+    counters.forEach((counter, index) => {
+      setTimeout(() => {
+        counter.textContent = digits[index];
+        counter.style.animationDelay = `${index * 0.2}s`;
+      }, index * 200);
+    });
+
+    // Initialize
+    renderBookmarks();
+    updateSessionInfo();
+    updateWeather();
+  </script>
+</body>
+</html>
